@@ -52,13 +52,13 @@ class GradientGenerator extends Component {
         <SelectionBg>
           <Select>
             <P># 666666</P>
-            <SelectLeftBtn onClick={leftBtn} type="button">
+            <SelectLeftBtn onClick={this.leftBtn} type="button">
               #8ae323
             </SelectLeftBtn>
           </Select>
           <div>
             <P># 666666</P>
-            <SelectRightBtn onClick={rightBtn} type="button">
+            <SelectRightBtn onClick={this.rightBtn} type="button">
               #014f7b
             </SelectRightBtn>
           </div>

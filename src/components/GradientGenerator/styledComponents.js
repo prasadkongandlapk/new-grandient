@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
 export const Background = styled.div`
-  background-image:${props=> linear-gradient(to props.directionValue, #8ae323, #014f7b)};
+  background-image: linear-gradient(
+    to ${props => props.directionValue},
+    #8ae323,
+    #014f7b
+  );
   background-size: cover;
   height: 100vh;
   width: 100vw;
