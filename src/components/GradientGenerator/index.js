@@ -3,8 +3,7 @@ import {
   Background,
   Select,
   SelectionBg,
-  SelectLeftBtn,
-  SelectRightBtn,
+  Generate,
   P,
   Ul,
   Heading,
@@ -19,24 +18,40 @@ const gradientDirectionsList = [
 ]
 
 class GradientGenerator extends Component {
-  state = {changeBtn: 'top', firstColor: '', secondColor: ''}
+  state = {
+    changeBtn: 'top',
+    generate: false,
+    firstColor: '',
+    secondColor: '',
+  }
 
   onChangeBtn = value => {
     this.setState({changeBtn: value})
   }
 
-  leftBtn = () => {
-    this.setState({firstColor: 'f'})
+  generateBtn = () => {
+    this.setState({generate: true})
   }
 
-  rightBtn = () => {
-    this.setState({secondColor: 's'})
+  onChangeLeftColor = event => {
+    this.setState({firstColor: event.target.value})
+  }
+
+  onChangeRightColor = event => {
+    this.setState({secondColor: event.target.value})
   }
 
   render() {
-    const {changeBtn} = this.state
+    const {changeBtn, generate, firstColor, secondColor} = this.state
     return (
-      <Background directionValue={changeBtn}>
+      <Background
+        generate
+        color1="#8ae323"
+        color2="#014f7b"
+        firstColor
+        secondColor
+        directionValue={changeBtn}
+      >
         <Heading>Generate a CSS Color Gradient</Heading>
         <P>Choose Direction</P>
         <Ul>
@@ -51,18 +66,25 @@ class GradientGenerator extends Component {
         <P>Pick The Colors</P>
         <SelectionBg>
           <Select>
-            <P># 666666</P>
-            <SelectLeftBtn onClick={this.leftBtn} type="button">
-              #8ae323
-            </SelectLeftBtn>
+            <P>#8ae323</P>
+            <input
+              value={firstColor}
+              onChange={this.onChangeLeftColor}
+              type="color"
+            />
           </Select>
           <div>
-            <P># 666666</P>
-            <SelectRightBtn onClick={this.rightBtn} type="button">
-              #014f7b
-            </SelectRightBtn>
+            <P>#014f7b</P>
+            <input
+              value={secondColor}
+              onChange={this.onChangeRightColor}
+              type="color"
+            />
           </div>
         </SelectionBg>
+        <Generate type="button" onClick={this.generateBtn}>
+          Generate
+        </Generate>
       </Background>
     )
   }

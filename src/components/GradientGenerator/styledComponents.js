@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Background = styled.div`
   background-image: linear-gradient(
     to ${props => props.directionValue},
-    #8ae323,
-    #014f7b
+    ${props => (props.generate ? props.firstColor : props.color1)},
+    ${props => (props.generate ? props.secondColor : props.color2)}
   );
   background-size: cover;
   height: 100vh;
@@ -36,10 +36,8 @@ export const Select = styled.div`
   margin-right: 30px;
 `
 
-export const SelectLeftBtn = styled.div`
-  background-color: #8ae323;
-`
-
-export const SelectRightBtn = styled.div`
-  background-color: #014f7b;
+export const Generate = styled.button`
+  background-color: #00c9b7;
+  border-radius: 3px;
+  border-style: none;
 `
