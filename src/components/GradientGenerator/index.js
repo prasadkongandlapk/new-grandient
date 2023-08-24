@@ -82,7 +82,11 @@ class GradientGenerator extends Component {
             />
           </div>
         </SelectionBg>
-        <Generate type="button" onClick={this.generateBtn}>
+        <Generate
+          data-testid="gradientGenerator"
+          type="button"
+          onClick={this.generateBtn}
+        >
           Generate
         </Generate>
       </Background>

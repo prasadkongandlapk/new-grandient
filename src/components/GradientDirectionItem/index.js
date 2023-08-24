@@ -8,7 +8,7 @@ const GradientDirectionItem = props => {
     onChangeBtn(value)
   }
   return (
-    <List>
+    <List data-testid="gradientGenerator">
       <Button type="button" onClick={onClickBtn}>
         {displayText}
       </Button>
