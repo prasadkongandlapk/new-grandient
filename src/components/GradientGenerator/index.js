@@ -45,11 +45,12 @@ class GradientGenerator extends Component {
     const {changeBtn, generate, firstColor, secondColor} = this.state
     return (
       <Background
-        generate
+        data-testid="gradientGenerator"
+        generate={generate}
         color1="#8ae323"
         color2="#014f7b"
-        firstColor
-        secondColor
+        firstColor={firstColor}
+        secondColor={secondColor}
         directionValue={changeBtn}
       >
         <Heading>Generate a CSS Color Gradient</Heading>
@@ -82,13 +83,11 @@ class GradientGenerator extends Component {
             />
           </div>
         </SelectionBg>
-        <Generate
-          data-testid="gradientGenerator"
-          type="button"
-          onClick={this.generateBtn}
-        >
-          Generate
-        </Generate>
+        <div data-testid="gradientGenerator">
+          <Generate type="button" onClick={this.generateBtn}>
+            Generate
+          </Generate>
+        </div>
       </Background>
     )
   }
